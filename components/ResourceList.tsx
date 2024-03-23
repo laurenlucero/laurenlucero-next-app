@@ -1,5 +1,6 @@
 import React from 'react';
 import ResourceItem from './ResourceItem';
+import { FiltersState } from './Filters';
 
 interface Resource {
   id: number;
@@ -10,14 +11,27 @@ interface Resource {
 
 interface ResourceListProps {
   resources: Resource[];
+  filters: FiltersState;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ resources }) => {
+const ResourceList: React.FC<ResourceListProps> = ({ resources, filters }) => {
+const filteredResources = resources.filter(resource => {
+    // Filter by resourceName if provided
+    if (filters.resourceName && !resource.title.toLowerCase().includes(filters.resourceName.toLowerCase())) {
+      return false;
+    }
+    // Filter by gradeLevels if provided
+    if (filters.gradeLevels.length > 0 && !resource.grades.some(grade => filters.gradeLevels.includes(grade))) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <div>
       <h2>Resources</h2>
       <ul>
-        {resources.map((resource) => (
+        {filteredResources.map((resource) => (
           <ResourceItem key={resource.id} resource={resource} />
         ))}
       </ul>

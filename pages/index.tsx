@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import ResourceList from '../components/ResourceList';
 import mockData from '../data/mockData';
-import Filters from '../components/Filters';
+import Filters, { FiltersState } from '../components/Filters';
 
 const IndexPage: React.FC = () => {
+  const [filters, setFilters] = useState<FiltersState>({
+    resourceName: '',
+    gradeLevels: [],
+  });
+
+  const handleFilterChange = (newFilters: FiltersState) => {
+    setFilters(newFilters);
+  };
+
   return (
     <div>
       <Head>
@@ -13,11 +22,11 @@ const IndexPage: React.FC = () => {
       </Head>
       <header>
         {/* Add header content */}
-        <Filters />
       </header>
       <main>
         <h1>Mental Health Resources</h1>
-        <ResourceList resources={mockData}/>
+        <Filters onFilterChange={handleFilterChange}/>
+        <ResourceList resources={mockData} filters={filters}/>
       </main>
       <footer>
         {/* Add footer content */}
