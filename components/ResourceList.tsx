@@ -15,7 +15,7 @@ interface ResourceListProps {
 }
 
 const ResourceList: React.FC<ResourceListProps> = ({ resources, filters }) => {
-const filteredResources = resources.filter(resource => {
+  const filteredResources = resources.filter(resource => {
     // Filter by resourceName if provided
     if (filters.resourceName && !resource.title.toLowerCase().includes(filters.resourceName.toLowerCase())) {
       return false;
@@ -29,7 +29,6 @@ const filteredResources = resources.filter(resource => {
 
   // Sort filteredResources alphabetically by title
   const sortedResources = filteredResources.slice().sort((a, b) => a.title.localeCompare(b.title));
-
 
   return (
     <div>
