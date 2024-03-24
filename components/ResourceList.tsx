@@ -27,12 +27,17 @@ const filteredResources = resources.filter(resource => {
     return true;
   });
 
+  // Sort filteredResources alphabetically by title
+  const sortedResources = filteredResources.slice().sort((a, b) => a.title.localeCompare(b.title));
+
+
   return (
     <div>
       <h2>Resources</h2>
       <ul>
-        {filteredResources.map((resource) => (
-          <ResourceItem key={resource.id} resource={resource} />
+        {sortedResources
+          .map((resource) => (
+            <ResourceItem key={resource.id} resource={resource} />
         ))}
       </ul>
     </div>
