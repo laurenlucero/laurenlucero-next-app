@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TRAILS Mental Health Resources
+
+TRAILS Mental Health Resources is a full-stack single-page application built using Next.js that provides a list of mental health resource materials. It allows users to browse and filter resources based on their grade level and resource name.
+
+## Features
+
+- Displays alphabetical list of mental health resources with their titles, descriptions, and grade bands
+- Filters resources by resource name and grade levels
+- Implements backend using Next.js API routes to manage resources
+- Utilizes Prisma as the ORM for database operations
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone https://github.com/your-username/laurenlucero-next-app.git
+   ```
 
-## Learn More
+2. Navigate to the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cd laurenlucero-next-app
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+### Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm run dev
+   ```
+
+2. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the application
+
+### Data Management
+
+- Mock data is provided in the `data/mockData.js` file. You can modify or expand this data to suit your needs
+- Use the `scripts/insertData.js` script to insert mock data into the database:
+
+  ```bash
+  node scripts/insertData.js
+  ```
+
+## Technologies Used
+
+- Next.js
+- React
+- Prisma
+- TypeScript
+- SQLite (for development)
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
